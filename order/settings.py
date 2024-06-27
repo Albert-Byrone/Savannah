@@ -35,7 +35,7 @@ DEBUG = True
 
 # ALLOWED_HOSTS = ['*', 'localhost', 'render.com']
 
-# ALLOWED_HOSTS= os.environ.get("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS= os.environ.get("ALLOWED_HOSTS").split(" ")
 # Security configuration settings
 
 #  make cookies HttpOnly, which means they are not accessible via JavaScript,
