@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-wr764&r@7@64@jzg58x)(_-42vz76zo9@x=ac3&e*thbyvf^rq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 
 # Security configuration settings
@@ -117,9 +117,7 @@ TEMPLATES = [
         },
     },
 ]
-# client_secret = LplE5UseIu5zk49cx1InAO3ylHqxB4e5FYXRgTFmpNtW8UFgV27ntYmRAUYXTcDmjpx77NcGI3EyhkFQbsHqBRLwoD3H6oGe9Rg3F9wfPvnsxMS7W4yepttEmJUpZbsJ
 
-# id: fDg2kBLWrsXj4WH09BYFw6hydDYimW7AiTUSZIKW
 
 WSGI_APPLICATION = 'order.wsgi.application'
 # REST_FRAMEWORK = {
