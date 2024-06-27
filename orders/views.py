@@ -15,3 +15,18 @@ class CustomerViewSet(viewsets.ModelViewSet):
     serializer_class = CustomerSerializer
     # permission_classes = [IsAuthenticated]
 
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated]
+
+
+    def get_queryset(self):
+        return Order.objects.filter(customer=self.request.user)
+
+    def perform_create(self, serializer):
+        instance = serializer.save()
+        send_sms(instance)
+
+
+
