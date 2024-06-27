@@ -17,6 +17,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 load_dotenv()
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,9 +33,9 @@ SECRET_KEY = 'django-insecure-wr764&r@7@64@jzg58x)(_-42vz76zo9@x=ac3&e*thbyvf^rq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'localhost', 'render.com']
+# ALLOWED_HOSTS = ['*', 'localhost', 'render.com']
 
-
+ALLOWED_HOSTS= os.environ.get("ALLOWED_HOSTS").split(" ")
 # Security configuration settings
 
 #  make cookies HttpOnly, which means they are not accessible via JavaScript,
@@ -176,17 +177,27 @@ REST_FRAMEWORK = {
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+#
 
+database_url = os.environ.get("DATABASE_URL").split(" ")
 DATABASES = {
-    "default": {
-        "ENGINE": "django.contrib.gis.db.backends.postgis",
-        "NAME": os.environ["POSTGRES_DB"],
-        "USER": os.environ["POSTGRES_USER"],
-        "PASSWORD": os.environ["POSTGRES_PASSWORD"],
-        "HOST": os.environ["PG_HOST"],
-        "PORT": os.environ["PG_PORT"],
-    }
+    'default': dj_database_url.config(
+        default=database_url,
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
+#
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.contrib.gis.db.backends.postgis",
+#         "NAME": os.environ["POSTGRES_DB"],
+#         "USER": os.environ["POSTGRES_USER"],
+#         "PASSWORD": os.environ["POSTGRES_PASSWORD"],
+#         "HOST": os.environ["PG_HOST"],
+#         "PORT": os.environ["PG_PORT"],
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
