@@ -4,6 +4,8 @@ This is a simple order management application that allows users to create, updat
 
 MShape is a simple M-Pesa clone. This application was part of my interview for frontend engineer with Quikk.
 
+Live Link https://savannah-gr19.onrender.com
+
 ## Tools
 
 This application has been built with the following:
@@ -35,6 +37,11 @@ The following features are available:
 | landing                             | dashboard                                |
 | ----------------------------------- | ---------------------------------------- |
 | ![image](/src/screenshots/home.png) | ![image](/src/screenshots/dashboard.png) | -->
+
+## Test Credentials
+
+- Username admin
+- Password : Albert254
 
 ## Authors
 
