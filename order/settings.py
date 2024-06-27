@@ -33,9 +33,9 @@ SECRET_KEY = 'django-insecure-wr764&r@7@64@jzg58x)(_-42vz76zo9@x=ac3&e*thbyvf^rq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['*', 'localhost', 'render.com']
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS= os.environ.get("ALLOWED_HOSTS").split(" ")
+# ALLOWED_HOSTS= os.environ.get("ALLOWED_HOSTS").split(" ")
 # Security configuration settings
 
 #  make cookies HttpOnly, which means they are not accessible via JavaScript,
