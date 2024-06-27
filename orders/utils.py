@@ -1,3 +1,17 @@
+import os
+import africastalking
+from dotenv import load_dotenv
+load_dotenv()
+
+
+
+def send_sms(order):
+    africastalking.initialize(username='sandbox', api_key=os.environ['API_KEY'])
+    sms = africastalking.SMS
+    message = f"Dear Customer, your order for {order.item} has been placed."
+    response = sms.send(message, [order.customer.phone_number])
+    print(response)
+
 
 
 def format_phone_number(phone_number):
